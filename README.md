@@ -12,7 +12,7 @@ Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&title=module_
 - `title` (optional) - what to use for the calendar event title
     - `module_name` (default): Uses the full module name, e.g., **Basic Marketing Skills**.
     - `module_code`: Extracts the module code from the module ID, e.g., **BMS**.
-    - `module_id`: Uses the full module ID, e.g., **ABUS012-4-C-BMS-T-1**.
+    - `module_id`: Uses the full module ID, which is what APSpace's export feature uses, e.g., **ABUS012-4-C-BMS-T-1**.
 
 ### Adding it to your calendar app
 For example: Google Calendar

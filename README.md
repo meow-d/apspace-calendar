@@ -22,6 +22,9 @@ For example: Google Calendar
 3. Go to Add calendar > From URL
 4. Enter your URL and click Add calendar
 
+## Limitations/TODO
+- No support for groupings
+
 ## Running it for yourself
 ### net/http version
 ```sh

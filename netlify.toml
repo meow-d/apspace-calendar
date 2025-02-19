@@ -1,0 +1,14 @@
+[build]
+  functions = "functions"
+
+[dev]
+  functions = "functions"
+
+[build.environment]
+  GO_IMPORT_PATH = "github.com/meow-d/apspace-calendar"
+  GO_VERSION = "1.22.12"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/apspace-calendar/:splat"
+  status = 200

@@ -57,7 +57,7 @@ func FetchAndConvert(intake, titleFormat string) (string, error) {
 			title = entry.ModuleName
 		}
 
-		loc := entry.Room + "|" + entry.Location
+		loc := entry.Room + " | " + entry.Location
 		if loc == "" {
 			loc = entry.Location
 		}

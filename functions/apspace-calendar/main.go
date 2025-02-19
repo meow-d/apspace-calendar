@@ -14,12 +14,14 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (events
 		return events.APIGatewayProxyResponse{StatusCode: 400, Body: "Missing required parameter: intake"}, nil
 	}
 
+	group := request.QueryStringParameters["group"]
+
 	titleFormat := request.QueryStringParameters["title"]
 	if titleFormat == "" {
 		titleFormat = "module_name"
 	}
 
-	icsData, err := calendar.FetchAndConvert(intake, titleFormat)
+	icsData, err := calendar.FetchAndConvert(intake, group, titleFormat)
 	if err != nil {
 		return events.APIGatewayProxyResponse{StatusCode: 500, Body: "Failed to process calendar"}, nil
 	}

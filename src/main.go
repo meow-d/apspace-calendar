@@ -15,12 +15,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	group := r.URL.Query().Get("group")
+
 	titleFormat := r.URL.Query().Get("title")
 	if titleFormat == "" {
 		titleFormat = "module_name"
 	}
 
-	icsData, err := calendar.FetchAndConvert(intake, titleFormat)
+	icsData, err := calendar.FetchAndConvert(intake, group, titleFormat)
 	if err != nil {
 		http.Error(w, "Failed to process calendar", http.StatusInternalServerError)
 		return

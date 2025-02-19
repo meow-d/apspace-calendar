@@ -5,10 +5,12 @@ An instance is hosted at [apspace-calendar.netlify.app](https://apspace-calendar
 
 ## Usage
 ### 1. Getting the url
-Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&title=module_name`
+Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&group=G1&title=module_name`
 
 #### 2. Parameters
 - `intake`
+- `group` (optional) - your group, e.g. "G1". if you don't specify anything, classes from all groups will be given.
+    - Do tell me if there are any issues with this feature in particular
 - `title` (optional) - what to use for the calendar event title
     - `module_name` (default): Uses the full module name, e.g., **Basic Marketing Skills**.
     - `module_code`: Extracts the module code from the module ID, e.g., **BMS**.
@@ -22,9 +24,6 @@ For example: Google Calendar
 3. Go to Add calendar > From URL
 4. Enter your URL and click Add calendar
 
-## Limitations/TODO
-- No support for groupings
-
 ## Running it for yourself
 ### net/http version
 ```sh
@@ -34,3 +33,9 @@ go run src/main.go --serve
 
 ### netlify function
 Just deploy to netlify. You can also run it locally with `netlify dev`.
+
+## Limitations/TODO
+- [x] Filter by grouping
+
+## Contributing
+Feel free to open an issue for any bugs. Or better yet, open a pull request 🥺.

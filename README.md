@@ -25,13 +25,13 @@ For example: Google Calendar
 4. Enter your URL and click Add calendar
 
 ## Running it for yourself
-### net/http version
+### `net/http` version
 ```sh
 go get ./...
 go run src/main.go --serve
 ```
 
-### netlify function
+### Netlify function
 Just deploy to netlify. You can also run it locally with `netlify dev`.
 
 ## Limitations/TODO
@@ -39,4 +39,4 @@ Just deploy to netlify. You can also run it locally with `netlify dev`.
 - [ ] Tests
 
 ## Contributing
-Feel free to open an issue for any bugs. Or better yet, open a pull request 🥺.
+Feel free to open an issue for any bugs. Or better yet, fix it for me and open a pull request 🥺.

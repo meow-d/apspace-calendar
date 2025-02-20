@@ -7,7 +7,7 @@ An instance is hosted at [apspace-calendar.netlify.app](https://apspace-calendar
 ### 1. Getting the url
 Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&group=G1&title=module_name`
 
-#### 2. Parameters
+#### Parameters
 - `intake`
 - `group` (optional) - your group, e.g. "G1". if you don't specify anything, classes from all groups will be given.
     - Do tell me if there are any issues with this feature in particular
@@ -16,7 +16,7 @@ Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&group=G1&titl
     - `module_code`: Extracts the module code from the module ID, e.g., **BMS**.
     - `module_id`: Uses the full module ID, which is what APSpace's export feature uses, e.g., **ABUS012-4-C-BMS-T-1**.
 
-### Adding it to your calendar app
+### 2. Adding it to your calendar app
 For example: Google Calendar
 
 1. Go to calendar.google.com

@@ -36,6 +36,7 @@ Just deploy to netlify. You can also run it locally with `netlify dev`.
 
 ## Limitations/TODO
 - [x] Filter by grouping
+- [ ] Tests
 
 ## Contributing
 Feel free to open an issue for any bugs. Or better yet, open a pull request 🥺.

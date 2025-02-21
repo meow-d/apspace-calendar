@@ -1,6 +1,8 @@
 package calendar
 
 import (
+	// "fmt"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -78,20 +80,36 @@ func TestFetchAndConvert(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if !strings.Contains(icsData, "SUMMARY:Data Communications & Network") {
-		t.Errorf("expected event summary to be module name")
+	contains(t, icsData, "BEGIN:VCALENDAR", "expected ics data to start with BEGIN:VCALENDAR")
+	contains(t, icsData, "END:VCALENDAR", "expected ics data to end with END:VCALENDAR")
+	contains(t, icsData, "SUMMARY:Data Communications & Network", "expected event summary to be module name")
+	contains(t, icsData, "LOCATION:A-09-05 | APU CAMPUS", "expected event location to be correct and in correct format")
+	notContains(t, icsData, "LOCATION:A-05-05 | APU CAMPUS", "expected G1 class to be filtered")
+	notContains(t, icsData, "LOCATION:A-09-02 | APU CAMPUS", "expected class from different intake to be filtered")
+	contains(t, icsData, "LOCATION:B-04-02 | APU CAMPUS", "expected all classes on weeks with no grouping")
+
+	icsData, err = FetchAndConvert("AFCF2411ICT", "G2", "module_name_class")
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
 	}
-	if !strings.Contains(icsData, "LOCATION:A-09-05 | APU CAMPUS") {
-		t.Errorf("expected event location to be correct and in correct format")
+	contains(t, icsData, "SUMMARY:Data Communications & Network L-2", "expected event summary to be module name and class")
+
+	icsData, err = FetchAndConvert("AFCF2411ICT", "G2", "module_code_class")
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
 	}
-	if strings.Contains(icsData, "LOCATION:A-05-05 | APU CAMPUS") {
-		t.Errorf("expected G1 class to be filtered")
+	contains(t, icsData, "SUMMARY:DCN L-2", "expected event summary to be module code and class")
+}
+
+func contains(t *testing.T, testString, expected, message string) {
+	if !strings.Contains(testString, expected) {
+		t.Errorf(message, expected)
 	}
-	if strings.Contains(icsData, "LOCATION:A-09-02 | APU CAMPUS") {
-		t.Errorf("expected class from different intake to be filtered")
-	}
-	if !strings.Contains(icsData, "LOCATION:B-04-02 | APU CAMPUS") {
-		t.Errorf("expected all classes on weeks with no grouping")
+}
+
+func notContains(t *testing.T, testString, expected, message string) {
+	if strings.Contains(testString, expected) {
+		t.Errorf(message, expected)
 	}
 }
 

@@ -12,9 +12,11 @@ Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&group=G1&titl
 - `group` (optional) - your group, e.g. "G1". if you don't specify anything, classes from all groups will be given.
     - Do tell me if there are any issues with this feature in particular
 - `title` (optional) - what to use for the calendar event title
-    - `module_name` (default): Uses the full module name, e.g., **Basic Marketing Skills**.
-    - `module_code`: Extracts the module code from the module ID, e.g., **BMS**.
-    - `module_id`: Uses the full module ID, which is what APSpace's export feature uses, e.g., **ABUS012-4-C-BMS-T-1**.
+    - `module_name` (default) - e.g., **Basic Marketing Skills**.
+r   - `module_name_class` - e.g., **Basic Marketing Skills T-1**.
+    - `module_code` - e.g., **BMS**.
+    - `module_code_class` - e.g., **BMS T-1**.
+    - `module_id` - the full module ID, which is what APSpace's export feature uses, e.g., **ABUS012-4-C-BMS-T-1**.
 
 ### 2. Adding it to your calendar app
 For example: Google Calendar

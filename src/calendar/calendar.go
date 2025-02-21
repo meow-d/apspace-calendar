@@ -83,18 +83,29 @@ func FetchAndConvert(intake, group, titleFormat string) (string, error) {
 		}
 
 		var title string
+		var module string
+		var class string
+
+		parts := strings.Split(entry.ModuleID, "-")
+
+		if titleFormat == "" {
+			titleFormat = "module_name"
+		}
 		switch titleFormat {
-		case "module_code":
-			parts := strings.Split(entry.ModuleID, "-")
-			if len(parts) > 3 {
-				title = parts[len(parts)-3]
-			} else {
-				title = entry.ModuleID
-			}
+		case "module_name", "module_name_class":
+			module = entry.ModuleName
+		case "module_code", "module_code_class":
+			module = parts[len(parts)-3]
+		}
+
+		switch titleFormat {
+		case "module_name", "module_code":
+			title = module
+		case "module_name_class", "module_code_class":
+			class = strings.Join(parts[len(parts)-2:], "-")
+			title = module + " " + class
 		case "module_id":
 			title = entry.ModuleID
-		default:
-			title = entry.ModuleName
 		}
 
 		loc := entry.Room + " | " + entry.Location

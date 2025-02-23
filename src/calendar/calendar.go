@@ -116,7 +116,8 @@ func FetchAndConvert(intake, group, titleFormat string) (string, error) {
 		start, _ := time.Parse(time.RFC3339, entry.TimeFromISO)
 		end, _ := time.Parse(time.RFC3339, entry.TimeToISO)
 
-		event := cal.AddEvent(fmt.Sprintf("%s@calendar", entry.ModuleID))
+		event := cal.AddEvent(fmt.Sprintf("%s@%s@calendar", start.Unix(), entry.ModuleID))
+		event.SetDtStampTime(time.Now())
 		event.SetSummary(title)
 		event.SetLocation(loc)
 		event.SetStartAt(start)

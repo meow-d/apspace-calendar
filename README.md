@@ -16,7 +16,7 @@ Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&group=G1&titl
     - Do tell me if there are any issues with this feature in particular
 - `title` (optional) - what to use for the calendar event title
     - `module_name` (default) - e.g., **Basic Marketing Skills**.
-r   - `module_name_class` - e.g., **Basic Marketing Skills T-1**.
+    - `module_name_class` - e.g., **Basic Marketing Skills T-1**.
     - `module_code` - e.g., **BMS**.
     - `module_code_class` - e.g., **BMS T-1**.
     - `module_id` - the full module ID, which is what APSpace's export feature uses, e.g., **ABUS012-4-C-BMS-T-1**.

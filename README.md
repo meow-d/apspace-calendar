@@ -3,9 +3,6 @@ Automatically sync your APSpace timetable with most calendar apps using an iCale
 
 An instance is hosted at [apspace-calendar.netlify.app](https://apspace-calendar.netlify.app/)
 
-> [!IMPORTANT]  
-> There was an issue with events having duplicate IDs. This has been fixed. If you have already added the calendar to your app, you may need to remove and re-add it.
-
 ## Usage
 ### 1. Getting the url
 Example: `https://apspace-calendar.netlify.app/?intake=AFCF2411ICT&group=G1&title=module_name`
